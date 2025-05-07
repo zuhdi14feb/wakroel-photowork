@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wakroel Photowork</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    .logo {
+      max-width: 300px;
+      margin-bottom: 10px;
+      z-index: 2;
+    }
+    h1 {
+      color: #333;
+      font-size: 32px;
+      min-height: 40px;
+      border-right: 3px solid #333;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      z-index: 2;
+      position: relative;
+    }
+    .watermark {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      opacity: 0.07;
+      z-index: 0;
+      width: 400px;
+      pointer-events: none;
+    }
+    .paket-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+      position: relative;
+      z-index: 2;
+    }
+    .paket {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 270px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    .paket button {
+      margin-top: 10px;
+      padding: 10px;
+      background: #007b5e;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+    .paket button .arrow {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+    .paket button.open .arrow {
+      transform: rotate(90deg);
+    }
+    .detail {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.3s ease;
+      text-align: left;
+    }
+    .detail.open {
+      max-height: 500px;
+      padding-top: 10px;
+    }
+    .detail ul {
+      padding-left: 20px;
+    }
+    .bold {
+      font-weight: bold;
+    }
+    .whatsapp-btn {
+      background: #25D366;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <img src="5.png" alt="Logo Wakroel Photowork" class="logo" />
+  <h1 id="judul"></h1>
+  <img src="5.png" alt="Watermark Wakroel" class="watermark" />
+  <div class="paket-container"></div>
+  <script>
+    function toggleDetail(id, button) {
+      const detail = document.getElementById(id);
+      detail.classList.toggle("open");
+      button.classList.toggle("open");
+    }
+    const judul = "Wakroel Photowork";
+    let i = 0;
+    const speed = 100;
+    function typeWriter() {
+      if (i < judul.length) {
+        document.getElementById("judul").innerHTML += judul.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+    window.onload = typeWriter;
+  </script>
+</body>
+</html>
